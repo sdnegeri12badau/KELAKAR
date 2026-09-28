@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KELAKAR - SD Negeri 12 Badau</title>
+<link rel="icon" href="logo-sekolah.png">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#14602A;--g:#1E7A2B;--mint:#7CFF85;--paper:#F1FAF1;--gold:#E0B93A;--blue:#0B4FB3;--red:#E8262B;--ink:#12281A;--line:#cfe6d1}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+h1,h2,h3{font-family:'Baloo 2',Nunito,sans-serif;line-height:1.15;margin:0}
+header{background:var(--gd);color:#fff;text-align:center;padding:28px 16px 22px;border-bottom:8px solid var(--gold)}
+.logos{display:flex;justify-content:center;align-items:center;gap:18px;margin-bottom:12px}
+.logos img{height:84px;width:auto;background:#fff;border-radius:14px;padding:6px}
+header h1{font-size:clamp(2.4rem,7vw,3.6rem);letter-spacing:.06em;font-weight:800}
+header p{margin:6px auto 0;max-width:620px}
+.sub{font-weight:700;color:var(--mint)}
+nav{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;background:#fff;padding:10px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav button{font:700 1rem Nunito;border:2px solid transparent;background:none;color:var(--gd);padding:9px 18px;border-radius:999px;cursor:pointer}
+nav button.on{background:var(--blue);color:#fff}
+nav button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{max-width:980px;margin:0 auto;padding:24px 16px 40px}
+section{display:none}section.on{display:block}
+.card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--g);border-radius:12px;padding:20px;margin-bottom:22px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:0;list-style:none;margin:14px 0 0;counter-reset:s}
+.steps li{counter-increment:s;background:var(--paper);border-radius:10px;padding:12px;font-size:.93rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--ink);font:800 1rem 'Baloo 2';margin-bottom:6px}
+.steps b{display:block;color:var(--gd)}
+label{display:block;font-weight:700;margin:14px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:#fff}
+textarea{min-height:130px;resize:vertical}
+.btn{font:700 1rem Nunito;background:var(--g);color:#fff;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;margin-top:16px}
+.btn:hover{background:var(--gd)}.btn:disabled{opacity:.6;cursor:wait}
+.btn.blue{background:var(--blue)}
+.hint{font-size:.88rem;color:#4b6353}
+.msg{margin-top:14px;padding:12px;border-radius:10px;display:none}
+.msg.ok{display:block;background:#e3f8e5;border:1px solid var(--g)}
+.msg.err{display:block;background:#fde8e8;border:1px solid var(--red)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--gd);color:#fff;white-space:nowrap}
+.b{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:700;font-size:.8rem;background:#dbe7fb;color:var(--blue)}
+.b.p{background:#fbf0c9;color:#7a5d00}.b.s{background:#d6f5d9;color:var(--gd)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.row2{grid-template-columns:1fr}.logos img{height:64px}}
+footer{background:var(--gd);color:#fff;padding:26px 16px;border-top:8px solid var(--gold)}
+.fi{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;font-size:.93rem}
+footer a{color:var(--mint)}footer h3{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logos"><img src="logo-sekolah.png" alt="Logo SD Negeri 12 Badau"><img src="logo-tutwuri.jpg" alt="Logo Tut Wuri Handayani"></div>
+  <h1>KELAKAR</h1>
+  <p class="sub">Kanal Elektronik Layanan Aspirasi, Keluhan, dan Aduan Responsif</p>
+  <p>Wadah inspirasi dan pengaduan seluruh warga SD Negeri 12 Badau. Identitas pelapor dirahasiakan, hanya admin yang dapat melihat.</p>
+</header>
+<nav aria-label="Menu utama">
+  <button class="on" data-t="dash">Dashboard</button>
+  <button data-t="lapor">Lapor</button>
+  <button data-t="lacak">Lacak Laporan</button>
+  <button data-t="admin">Admin</button>
+</nav>
+<main>
+<section id="dash" class="on">
+  <div class="card">
+    <h2>Alur pengaduan</h2>
+    <ol class="steps">
+      <li><b>Isi laporan</b>Buka menu Lapor dan lengkapi formulir.</li>
+      <li><b>Dapat kode</b>Simpan kode laporan untuk melacak.</li>
+      <li><b>Diverifikasi</b>Admin memeriksa laporan secara rahasia.</li>
+      <li><b>Ditindaklanjuti</b>Sekolah menangani sesuai jenis laporan.</li>
+      <li><b>Selesai</b>Tanggapan dapat dilihat di Lacak Laporan.</li>
+    </ol>
+    <p class="hint">Pelapor dapat berasal dari guru, tenaga kependidikan, siswa, orang tua/wali, warga sekitar, dan alumni.</p>
+    <button class="btn" data-go="lapor">Buat laporan</button>
+    <button class="btn blue" data-go="lacak">Lacak laporan</button>
+  </div>
+  <div class="card">
+    <h2>Riwayat laporan</h2>
+    <p class="hint">Nama pelapor disamarkan. Nama lengkap dan nomor HP hanya terlihat oleh admin.</p>
+    <div class="tw"><table><thead><tr><th>Kode</th><th>Tanggal</th><th>Pelapor</th><th>Jenis</th><th>Status</th></tr></thead><tbody id="riwayat"><tr><td colspan="5">Memuat...</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="lapor">
+  <div class="card">
+    <h2>Formulir laporan</h2>
+    <p class="hint">Nama Anda tidak ditampilkan ke publik. Hanya admin yang dapat melihatnya.</p>
+    <div id="fm">
+      <div class="row2">
+        <div><label for="nama">Nama pelapor</label><input id="nama" placeholder="Boleh dikosongkan untuk anonim" autocomplete="off"></div>
+        <div><label for="hp">Nomor HP</label><input id="hp" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+        <div><label for="stat">Status pelapor</label><select id="stat"><option value="">Pilih status</option><option>Guru</option><option>Tenaga Kependidikan</option><option>Siswa</option><option>Orang Tua/Wali Siswa</option><option>Warga Sekitar</option><option>Alumni</option></select></div>
+        <div><label for="jenis">Jenis pengaduan</label><select id="jenis"><option value="">Pilih jenis</option><option>Fasilitas &amp; Infrastruktur Sekolah</option><option>Pelayanan Pembelajaran &amp; Administrasi</option><option>Kebersihan &amp; Lingkungan Sekolah</option><option>Keamanan &amp; Ketertiban Lingkungan</option><option>Tindakan Kekerasan/Bullying</option></select></div>
+      </div>
+      <label for="desk">Deskripsi laporan</label><textarea id="desk" placeholder="Ceritakan apa, kapan, dan di mana kejadiannya"></textarea>
+      <label for="file">Foto atau PDF (maks. 5 MB)</label><input id="file" type="file" accept="image/*,application/pdf">
+      <button class="btn" id="kirim">Kirim laporan</button>
+    </div>
+    <div class="msg" id="m1" role="status"></div>
+  </div>
+</section>
+
+<section id="lacak">
+  <div class="card">
+    <h2>Lacak laporan</h2>
+    <label for="kode">Kode laporan</label><input id="kode" placeholder="Contoh: KLK-260928-1234">
+    <button class="btn blue" id="cari">Cek status</button>
+    <div class="msg" id="m2" role="status"></div>
+  </div>
+</section>
+
+<section id="admin">
+  <div class="card" id="login">
+    <h2>Masuk admin</h2>
+    <label for="em">Email</label><input id="em" type="email" autocomplete="username">
+    <label for="pw">Kata sandi</label><input id="pw" type="password" autocomplete="current-password">
+    <button class="btn" id="masuk">Masuk</button>
+    <div class="msg" id="m3" role="status"></div>
+  </div>
+  <div class="card" id="panel" style="display:none">
+    <h2>Semua laporan (data lengkap)</h2>
+    <div class="tw"><table><thead><tr><th>Kode</th><th>Waktu</th><th>Pelapor</th><th>Jenis &amp; isi</th><th>Lampiran</th><th>Status &amp; tanggapan</th></tr></thead><tbody id="adm"></tbody></table></div>
+    <button class="btn blue" id="keluar">Keluar</button>
+  </div>
+</section>
+</main>
+
+<footer><div class="fi">
+  <div><h3>SD Negeri 12 Badau</h3>Jl. Membalong KM 15 Dusun Mempiu, Desa Cerucuk, Kec. Badau, Kab. Belitung, Kep. Bangka Belitung</div>
+  <div><h3>Kontak</h3>HP: <a href="tel:087899115290">087899115290</a><br>Email: <a href="mailto:sdnegeri12badau12@gmail.com">sdnegeri12badau12@gmail.com</a></div>
+  <div><h3>Media sosial</h3>Instagram: <a href="https://instagram.com/sdn12badau" target="_blank" rel="noopener">@sdn12badau</a><br>Facebook: <a href="https://facebook.com/Sdnegeriduabelasbadau" target="_blank" rel="noopener">Sdnegeriduabelasbadau</a></div>
+</div></footer>
+
+<script>
+// GANTI dengan URL Web App dari Google Apps Script (lihat README.md)
+const API="GANTI_DENGAN_URL_WEB_APP";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let token="";
+async function call(d){
+  const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)});
+  return r.json();
+}
+function show(t){
+  document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===t));
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
+  window.scrollTo(0,0);
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>show(b.dataset.t));
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>show(b.dataset.go));
+function msg(id,t,ok){const m=$(id);m.className="msg "+(ok?"ok":"err");m.innerHTML=t}
+const badge=s=>`<span class="b ${s==="Selesai"?"s":s==="Diterima"?"":"p"}">${esc(s)}</span>`;
+
+async function riwayat(){
+  try{
+    const r=await call({action:"list"});
+    $("#riwayat").innerHTML=r.rows.length?r.rows.map(x=>`<tr><td>${esc(x.kode)}</td><td>${esc(x.waktu)}</td><td>${esc(x.nama)}</td><td>${esc(x.jenis)}</td><td>${badge(x.status)}</td></tr>`).join(""):`<tr><td colspan="5">Belum ada laporan.</td></tr>`;
+  }catch(e){$("#riwayat").innerHTML=`<tr><td colspan="5">Riwayat belum dapat dimuat. Periksa URL API di index.html.</td></tr>`}
+}
+const b64=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(",")[1]);r.onerror=rej;r.readAsDataURL(f)});
+
+$("#kirim").onclick=async()=>{
+  const f=$("#file").files[0];
+  if(!$("#stat").value||!$("#jenis").value||!$("#desk").value.trim()||!$("#hp").value.trim())return msg("#m1","Lengkapi nomor HP, status pelapor, jenis pengaduan, dan deskripsi.",0);
+  if(f&&f.size>5*1024*1024)return msg("#m1","Ukuran file melebihi 5 MB. Pilih file yang lebih kecil.",0);
+  if(f&&!/^(image\/|application\/pdf)/.test(f.type))return msg("#m1","File harus berupa foto atau PDF.",0);
+  const btn=$("#kirim");btn.disabled=true;btn.textContent="Mengirim...";
+  try{
+    const d={action:"submit",nama:$("#nama").value.trim(),hp:$("#hp").value.trim(),status:$("#stat").value,jenis:$("#jenis").value,deskripsi:$("#desk").value.trim()};
+    if(f){d.fileName=f.name;d.mime=f.type;d.file=await b64(f)}
+    const r=await call(d);
+    if(!r.ok)throw new Error(r.error);
+    msg("#m1",`Laporan terkirim. Simpan kode laporan Anda: <b>${esc(r.kode)}</b>`,1);
+    ["nama","hp","desk","file"].forEach(i=>$("#"+i).value="");$("#stat").value="";$("#jenis").value="";
+    riwayat();
+  }catch(e){msg("#m1","Laporan gagal dikirim. Coba lagi beberapa saat.",0)}
+  btn.disabled=false;btn.textContent="Kirim laporan";
+};
+
+$("#cari").onclick=async()=>{
+  const k=$("#kode").value.trim();if(!k)return msg("#m2","Masukkan kode laporan.",0);
+  try{
+    const r=await call({action:"track",kode:k});
+    if(!r.ok)return msg("#m2","Kode laporan tidak ditemukan. Periksa penulisan kode.",0);
+    msg("#m2",`Status: ${badge(r.status)}<br>Jenis: ${esc(r.jenis)}<br>Tanggapan sekolah: ${esc(r.tanggapan||"Belum ada tanggapan.")}`,1);
+  }catch(e){msg("#m2","Status belum dapat dicek. Coba lagi.",0)}
+};
+
+const STS=["Diterima","Diverifikasi","Ditindaklanjuti","Selesai"];
+$("#masuk").onclick=async()=>{
+  try{
+    const r=await call({action:"login",email:$("#em").value.trim(),password:$("#pw").value});
+    if(!r.ok)return msg("#m3","Email atau kata sandi salah.",0);
+    token=r.token;$("#login").style.display="none";$("#panel").style.display="block";loadAdm();
+  }catch(e){msg("#m3","Tidak dapat masuk. Coba lagi.",0)}
+};
+$("#keluar").onclick=()=>{token="";$("#pw").value="";$("#panel").style.display="none";$("#login").style.display="block"};
+async function loadAdm(){
+  const r=await call({action:"adminList",token});
+  if(!r.ok){$("#keluar").click();return}
+  $("#adm").innerHTML=r.rows.map(x=>`<tr><td>${esc(x.kode)}</td><td>${esc(x.waktu)}</td>
+  <td><b>${esc(x.nama)}</b><br>${esc(x.hp)}<br>${esc(x.statusPelapor)}</td>
+  <td><b>${esc(x.jenis)}</b><br>${esc(x.deskripsi)}</td>
+  <td>${x.lampiran?`<a href="${esc(x.lampiran)}" target="_blank" rel="noopener">Buka</a>`:"-"}</td>
+  <td><select id="s-${esc(x.kode)}">${STS.map(s=>`<option${s===x.status?" selected":""}>${s}</option>`).join("")}</select>
+  <textarea id="t-${esc(x.kode)}" style="min-height:60px;margin-top:6px" placeholder="Tanggapan">${esc(x.tanggapan)}</textarea>
+  <button class="btn" style="margin-top:6px;padding:8px 14px" onclick="simpan('${esc(x.kode)}')">Simpan</button></td></tr>`).join("")||`<tr><td colspan="6">Belum ada laporan.</td></tr>`;
+}
+async function simpan(k){
+  const r=await call({action:"update",token,kode:k,status:$("#s-"+k).value,tanggapan:$("#t-"+k).value});
+  alert(r.ok?"Tersimpan.":"Gagal menyimpan.");riwayat();
+}
+riwayat();
+</script>
+</body>
+</html>
